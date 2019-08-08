@@ -38,12 +38,12 @@ echo "iptables-restore < /etc/iptables.ipv4.nat
 exit 0" > /etc/rc.local
 
 # Set up wireless access point
-apt-get install dnsmasq hostapd nginx
+apt-get install dnsmasq hostapd nginx -y
 
 echo "Configuring wireless access point..."
 
 echo "Installing dhcpcd.conf"
-install -m 644 -v src/dhcpcd.conf "/etc/"
+install -m 644 -v files/dhcpcd.conf "/etc/"
 
 echo "Installing dnsmasq.conf"
 install -m 644 -v files/dnsmasq.conf  "/etc/"
@@ -70,7 +70,7 @@ systemctl enable hostapd
 systemctl enable dnsmasq
 
 # Set up avionics firmware
-apt-get install python3-pip python3-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev software-properties-common
+apt-get install python3-pip python3-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev software-properties-common -y
 
 pip3 install future
 pip3 install lxml
@@ -106,25 +106,23 @@ systemctl enable nginx
 systemctl enable hostapd
 systemctl enable dnsmasq
 
-sudo curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
-sudo curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-sudo echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+# Add web server and client
+apt-get install apache2 -y
 
-sudo apt-get remove cmdtest nodejs -y
-sudo apt-get update
-sudo apt-get install nodejs yarn -y
+curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
-sudo yarn add global react-scripts serve
+apt-get remove cmdtest nodejs -y
+apt-get update
+apt-get install nodejs yarn -y
+
+yarn add global react-scripts serve
 
 cd /opt/mission-mule/data-mule-server
-sudo yarn setup
+yarn setup
 cd client
-sudo yarn build
-
-
-# Add web server and client
-
-apt-get install apache2
+yarn build
 
 rm -rf /var/www/html
 mkdir -p /var/www/html
