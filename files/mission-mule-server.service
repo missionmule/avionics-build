@@ -1,0 +1,12 @@
+[Unit]
+Description=Data mule web server
+After=multi-user.target
+
+[Service]
+Type=simple
+Environment="NODE_ENV=production"
+ExecStart=/usr/bin/node /opt/mission-mule/data-mule-server/server/server.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
