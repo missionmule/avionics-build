@@ -4,15 +4,6 @@
 echo "Disabling onboard Bluetooth"
 echo "dtoverlay=pi3-disable-bt" >> /boot/config.txt
 
-# Setting new hostname (muleOS)
-echo "muleOS" > /etc/hostname
-echo "127.0.0.1       localhost
-::1             localhost ip6-localhost ip6-loopback
-ff02::1         ip6-allnodes
-ff02::2         ip6-allrouters
-
-127.0.1.1       muleOS" > /etc/hosts
-
 # Set up wireless access point
 sudo apt install dnsmasq hostapd nginx -y
 
@@ -114,6 +105,15 @@ cd /opt/mission-mule/data-mule-server
 sudo yarn setup
 cd client
 sudo yarn build
+
+# Setting new hostname (muleOS)
+echo "muleOS" > /etc/hostname
+echo "127.0.0.1       localhost
+::1             localhost ip6-localhost ip6-loopback
+ff02::1         ip6-allnodes
+ff02::2         ip6-allrouters
+
+127.0.1.1       muleOS" > /etc/hosts
 
 echo "Payload firmware successfully built"
 
