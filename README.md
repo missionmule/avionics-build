@@ -7,7 +7,10 @@ single executable. It has the benefit of being much simpler to update as well as
 enabling the build to take place on top of the newest Debian OS builds and
 therefore stay up-to-date as much as possible.
 
-To setup the firmware, run the following commands:
+To setup the firmware, do the following:
+
+Add `wpa_supplicant.conf` and `ssh` files to `boot` volume after flashing latest
+Raspbian image.
 
 ```
 sudo apt update

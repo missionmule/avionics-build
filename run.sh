@@ -116,3 +116,8 @@ cd client
 sudo yarn build
 
 echo "Payload firmware successfully built"
+
+echo "Rebooting in 5 seconds..."
+sleep 5
+
+sudo reboot
