@@ -91,7 +91,6 @@ install -m 644 files/mission-mule-avionics.service   "/lib/systemd/system/"
 install -m 644 files/mission-mule-client.service   "/lib/systemd/system/"
 install -m 644 files/mission-mule-server.service   "/lib/systemd/system/"
 install -m 644 files/default   "/etc/nginx/sites-available/"
-install -m 644 files/setup.sh   "/opt/mission-mule/"
 
 sudo systemctl enable mission-mule-avionics
 sudo systemctl disable hciuart
