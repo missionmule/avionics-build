@@ -1,9 +1,5 @@
 #!/bin/bash -e
 
-# Update to the latest public packages
-echo "Updating packages"
-apt update -y
-
 # Disable Bluetooth by appending to config file
 echo "Disabling onboard Bluetooth"
 echo "dtoverlay=pi3-disable-bt" >> /boot/config.txt
@@ -16,12 +12,6 @@ ff02::1         ip6-allnodes
 ff02::2         ip6-allrouters
 
 127.0.1.1       muleOS" > /etc/hosts
-
-# Set up DHCP interfaces
-echo "auto lo
-
-iface lo inet loopback
-iface eth0 inet dhcp" >> /etc/network/interfaces
 
 # Set up IP tables
 echo "iptables-restore < /etc/iptables.ipv4.nat
