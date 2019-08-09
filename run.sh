@@ -27,6 +27,8 @@ sudo service dhcpcd restart
 
 echo "Installing dnsmasq.conf"
 install -m 644 -v files/dnsmasq.conf  "/etc/"
+sudo systemctl enable dnsmasq
+sudo systemctl start dnsmasq
 sudo systemctl reload dnsmasq
 
 echo "Installing hostapd.conf"
