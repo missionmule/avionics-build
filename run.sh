@@ -99,12 +99,17 @@ sudo apt-get remove cmdtest nodejs -y
 sudo apt-get update
 sudo apt-get install nodejs yarn -y
 
-sudo yarn add global react-scripts serve
+sudo yarn add global react-scripts
+sudo yarn add global serve
 
-cd /opt/mission-mule/data-mule-server
-sudo yarn setup
-cd client
+# Build web client
+cd /opt/mission-mule/data-mule-server/client
+sudo yarn install
 sudo yarn build
+
+# Build web server
+cd /opt/mission-mule/data-mule-server/server
+sudo yarn install
 
 # Setting new hostname (muleOS)
 echo "muleOS" > /etc/hostname
