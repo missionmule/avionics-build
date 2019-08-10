@@ -22,5 +22,7 @@ Raspbian image.
 sudo apt update
 sudo apt install git -y
 git clone -v https://github.com/missionmule/avionics-build.git
+cd avionics-build
+sudo chmod +x ./run.sh
 sudo ./run.sh
 ```
