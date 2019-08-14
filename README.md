@@ -1,5 +1,8 @@
 # avionics-build
 
+> Ummmm, this isn't actually building avionics firmware.
+Yeah, I know. That name is a carry over from the old days.
+
 This package replaces the legacy `missionmule/muleOS-gen` build system due to
 its very opaque documentation and non-intuitive build process. This build script
 condenses all necessary build steps to set up the payload firmware stack into a
