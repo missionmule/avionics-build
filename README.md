@@ -30,3 +30,7 @@ sudo ./run.sh
 ```
 
 Always run a full verification test flight to confidently certify a new payload.
+
+## Troubleshooting
+
+If the client daemon is failing to start, ensure that `serve` is installed globally with `sudo yarn add global serve`
