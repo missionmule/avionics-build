@@ -2,7 +2,7 @@
 
 > Ummmm, this isn't actually building avionics firmware.
 
-Yeah, I know. That name is a carry over from the old days.
+Yeah, I know. That name is a carry over from the old days. If you're looking for real avionics firmware, [check this out](https://github.com/PX4/Firmware).
 
 This package replaces the legacy `missionmule/muleOS-gen` build system due to
 its very opaque documentation and non-intuitive build process. This build script
