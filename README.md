@@ -33,4 +33,5 @@ Always run a full verification test flight to confidently certify a new payload.
 
 ## Troubleshooting
 
-If the client daemon is failing to start, ensure that `serve` is installed globally with `sudo yarn global add serve`
+* If the client daemon is failing to start, ensure that `serve` is installed globally with `sudo yarn global add serve`.
+* Some of the avionics firmware Python packages have a knack for failing on the first build. Before restarting the build, first run `sudo rm -rf /opt/mission-mule/firefly-mule`. 
