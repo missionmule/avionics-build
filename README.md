@@ -18,6 +18,8 @@ To setup the firmware, do the following:
 Add `wpa_supplicant.conf` and `ssh` files to `boot` volume after flashing latest
 Raspbian image.
 
+Inside the new image, run `sudo raspi-config`. Go to `5 Interfacing Options` > `P6 Serial`. Answer "no" to SSH over serial. Answer "yes" to serial port hardware.
+
 ```
 sudo apt update
 sudo apt install git -y
@@ -26,3 +28,5 @@ cd avionics-build
 sudo chmod +x ./run.sh
 sudo ./run.sh
 ```
+
+Always run a full verification test flight to confidently certify a new payload.
